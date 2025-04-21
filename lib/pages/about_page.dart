@@ -20,9 +20,9 @@ class AboutContent extends StatelessWidget {
 
   void _launchUrl(String url) async {
     final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
+    try {
       await launchUrl(uri);
-    } else {
+    } catch (_) {
       debugPrint("Impossible d'ouvrir l'$url");
     }
   }
